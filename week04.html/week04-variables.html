@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 4 Variables</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 24px;
+    }
+    .card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+    h1 { margin-top: 0; }
+    .row {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .label { font-weight: bold; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Using Variables</h1>
+
+    <div class="row"><span class="label">Name:</span> <span id="nameOut"></span></div>
+    <div class="row"><span class="label">School:</span> <span id="schoolOut"></span></div>
+    <div class="row"><span class="label">Credits:</span> <span id="creditsOut"></span></div>
+
+    <div class="row"><span class="label">Concatenation (message):</span> <span id="messageOut"></span></div>
+    <div class="row"><span class="label">Math result:</span> <span id="mathOut"></span></div>
+
+    <div class="row"><span class="label">Updated variables:</span> <span id="updatedOut"></span></div>
+  </div>
+
+  <script>
+    // 1) Create at least three variables + 2) assign/initialize them
+    let firstName = "Sheridan";
+    let school = "Ohio University";
+    let credits = 30;
+
+    // 3) Display at least three variables (on the page + console)
+    document.getElementById("nameOut").textContent = firstName;
+    document.getElementById("schoolOut").textContent = school;
+    document.getElementById("creditsOut").textContent = credits;
+
+    console.log("firstName:", firstName);
+    console.log("school:", school);
+    console.log("credits:", credits);
+
+    // 5) Add/concatenate two variables and display result
+    let message = firstName + " goes to " + school + ".";
+    document.getElementById("messageOut").textContent = message;
+
+    // 6) Perform math with at least one variable and display results
+    // Example: credits after adding 15 new credits, then dividing into semesters
+    let newCredits = credits + 15;      // addition
+    let semesters = 3;
+    let avgPerSemester = newCredits / semesters; // division
+
+    document.getElementById("mathOut").textContent =
+      "If you add 15 credits, you have " + newCredits +
+      " total. Average per semester over " + semesters +
+      " semesters is " + avgPerSemester + ".";
+
+    // 4) Update at least three variables
+    firstName = firstName + " Sawyer"; // update string (concatenate)
+    school = "OU (Athens Campus)";     // update string
+    credits = newCredits;              // update number
+
+    document.getElementById("updatedOut").innerHTML =
+      "<code>firstName</code> is now: " + firstName +
+      " | <code>school</code> is now: " + school +
+      " | <code>credits</code> is now: " + credits;
+
+    // Also show updates in console
+    console.log("UPDATED firstName:", firstName);
+    console.log("UPDATED school:", school);
+    console.log("UPDATED credits:", credits);
+  </script>
+</body>
+</html>
