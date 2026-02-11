@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 5 Troubleshooting</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 5 Troubleshooting</title>
 </head>
+
 <body>
+  <div id="secret-msg"></div>
 
-    <div id="secret-msg"></div>
+  <script>
+    // Ask for age
+    let answer = prompt("You must be 18 years and older to view this information. What is your age in years?");
 
-    <script>
-        let answer = prompt("You must be 18 years and older to view this information. What is your age in years?");
+    // Convert to number (blank or text becomes NaN)
+    let age = Number(answer);
 
-        let secretMessage == "<em>Never going to give you up/Never gonna let you down/Never gonna run around and desert you...</em>";
+    // Secret message (fix: use = not ==)
+    let secretMessage = "<em>Never going to give you up/Never gonna let you down/Never gonna run around and desert you...</em>";
 
-        if (answer > 18) {
-            document.getElementById("secret-msg").innerHTML = "<p>Great! I'm glad you are " / answer + " years old and that is old enough to see this message:</p>";
-            document.getElementById("secret-msg").innerHTML += "<p>" + secretMessage + "</p>";
-        }
-        else if answer < 0) {
-            document.getElementById("secret-msg").innerHTML = "<p>You can't be " + answer + " years old! That's impossible!</p>";
-        }
-        else if (answer < 18 && answer > 0) {
-            document.getElementById("secret-msg").innerHTML = "<p>You are " + answer + " years old and are not old enough to see the message!</p>";
-        }
-        else {
-            document.getElementById("secret-msg").innerHTML = "<p>Age cannot be detirmined. Message is not displayed.</p>";
-        }
-    </script>
-    
+    const output = document.getElementById("secret-msg");
+
+    // If blank or not a number -> Age cannot be determined
+    if (answer === null || answer.trim() === "" || Number.isNaN(age)) {
+      output.innerHTML = "<p>Age cannot be determined. Message is not displayed.</p>";
+    }
+    // Below zero
+    else if (age < 0) {
+      output.innerHTML = "<p>You can't be " + age + " years old! That's impossible!</p>";
+    }
+    // 18 and older (INCLUDING 18)
+    else if (age >= 18) {
+      output.innerHTML = "<p>Great! I'm glad you are " + age + " years old and that is old enough to see this message:</p>";
+      output.innerHTML += "<p>" + secretMessage + "</p>";
+    }
+    // Under 18 but above 0
+    else if (age > 0 && age < 18) {
+      output.innerHTML = "<p>You are " + age + " years old and are not old enough to see the message!</p>";
+    }
+    // Exactly 0 (still above? no — so handle it cleanly)
+    else {
+      output.innerHTML = "<p>You are " + age + " years old and are not old enough to see the message!</p>";
+    }
+  </script>
 </body>
 </html>
