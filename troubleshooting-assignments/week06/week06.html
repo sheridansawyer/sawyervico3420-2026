@@ -6,33 +6,50 @@
     <title>Week 6 Troubleshooting Assignment</title>
     <link rel="stylesheet" href="week06-style.css">
 </head>
+
 <body>
     <h2 id="sales-header"></h2>
     <div id="sales"></div>
 
     <script>
-
-        // Note: This is a multidimensional array. In the future, data like this would be best suited as an array of objects.
-        con SALES = [
+        const SALES = [
             ["John Doe", "Energy Drink", "$2.13", "10/23/2025 17:05"],
-            ["Jane Smith", "Candy Bar", "$1.15", "10/23/2025 18:31"];
+            ["Jane Smith", "Candy Bar", "$1.15", "10/23/2025 18:31"],
             ["Ben Franklin", "Dorito Chips", "$5.45", "10/24/2025 19:54"],
-            ["Betsy Ross", "Doughnuts", "$3.50" "10/24/2025 07:03"],
+            ["Betsy Ross", "Doughnuts", "$3.50", "10/24/2025 07:03"],
             ["John Doe", "Coffee", "$1.50", "10/24/2025 07:10"]
-        ]
+        ];
 
-        for (let x in SALES) {
-            document.getElementById("sales").innerHTML = `
+        let salesHTML = "";
+
+        for (let i = 0; i < SALES.length; i++) {
+            salesHTML += `
                 <div class="sale-list-item">
-                    <div class="customer">${SALES[x][0]}</div>
-                    <div class="item">${SALES[x][1]}</div>
-                    <div class="total">${SALES[x2]}</div>
-                    <div class="date-time">${SALES[x][3]}</div>
+                    <div class="customer">${SALES[i][0]}</div>
+                    <div class="item">${SALES[i][1]}</div>
+                    <div class="total">${SALES[i][2]}</div>
+                    <div class="date-time">${SALES[i][3]}</div>
                 </div>
             `;
         }
 
-        document.getElementById("sales-header").innerHTML = "Sales between " + SALES[0][3] + " and " + SALES[SALES.length - 1][3];
+        document.getElementById("sales").innerHTML = salesHTML;
+
+        // Calculate first and last date properly
+        let firstDate = SALES[0][3];
+        let lastDate = SALES[0][3];
+
+        for (let i = 1; i < SALES.length; i++) {
+            if (SALES[i][3] < firstDate) {
+                firstDate = SALES[i][3];
+            }
+            if (SALES[i][3] > lastDate) {
+                lastDate = SALES[i][3];
+            }
+        }
+
+        document.getElementById("sales-header").innerHTML =
+            `Sales between ${firstDate} and ${lastDate}`;
     </script>
 </body>
 </html>
