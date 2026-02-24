@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 7 Functions Assignment</title>
+  <link rel="stylesheet" href="week07-style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="card">
+      <h1>Week 7: Functions</h1>
+      <p id="welcomeText">Loading welcome message...</p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>1) No-Parameter Function</h2>
+        <p>This runs automatically when the page loads.</p>
+        <p class="result" id="dateResult"></p>
+      </section>
+
+      <section class="card">
+        <h2>2) One-Parameter Function</h2>
+        <p>Click the button to display a message using a function with 1 parameter.</p>
+        <button class="btn" onclick="showMoodMessage('confident')">Set Mood to “confident”</button>
+        <button class="btn" onclick="showMoodMessage('stressed')">Set Mood to “stressed”</button>
+        <p class="result" id="moodResult"></p>
+      </section>
+
+      <section class="card">
+        <h2>3) Two+ Parameter Function + Return</h2>
+        <p>This uses <strong>two parameters</strong> and <strong>returns</strong> a value.</p>
+        <button class="btn" onclick="runOutfitScore()">Calculate Outfit Score</button>
+        <p class="result" id="scoreResult"></p>
+        <p class="hint">Tip: it uses prompt() to collect two numbers.</p>
+      </section>
+
+      <section class="card">
+        <h2>Bonus: Click Event Function</h2>
+        <p>Click the box to toggle a style (interaction).</p>
+        <div id="clickBox" class="click-box" onclick="toggleHighlight()">
+          Click me!
+        </div>
+        <p class="result" id="toggleResult"></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made for Week 7 Functions Assignment</p>
+    </footer>
+  </div>
+
+  <script src="week07-script.js"></script>
+</body>
+</html>

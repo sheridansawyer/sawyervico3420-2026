@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f6fb;
+  color: #1f1f2b;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0 0 6px 0;
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+@media (min-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 6px 6px 0 0;
+  cursor: pointer;
+  background: #2b59ff;
+  color: white;
+  font-weight: 600;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.result {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f0f3ff;
+  border-radius: 10px;
+  min-height: 22px;
+}
+
+.hint {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.click-box {
+  margin-top: 10px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #eee;
+  text-align: center;
+  font-weight: 700;
+  user-select: none;
+}
+
+.highlight {
+  background: #ffe08a !important;
+  border: 2px solid #ffb300;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 18px;
+  opacity: 0.7;
+}
