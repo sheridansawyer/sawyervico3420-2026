@@ -16,39 +16,45 @@
     <form id="randomForm" action="" method="get">
         <div class="formField">
             <label for="firstName">What's your first name?</label>
-            <input type="text" id="first Name" name="firstName" onchange="updateCard()">
+            <input type="text" id="firstName" name="firstName" onchange="updateCard()">
         </div>
+
         <div class="formField">
             <label for="goodDay">Check here if you're having a good day: </label>
-            <input type="checkbox" id="goodDay" name="goodDay" onchange="updateCard()">
+            <input type="checkbox" id="goodDay" name="goodDay" checked onchange="updateCard()">
         </div>
+
         <div class="formField">
             <label>Choose a font style: </label><br>
-            <input type="radio" id="serif" name="fontType" value="serif" checked onclick="updateCard()" onkeyup="updateCard()"> 
+
+            <input type="radio" id="serif" name="fontType" value="serif" checked onclick="updateCard()">
             <label for="serif">Serif</label><br>
-            <input type="radio" id="sans" name="fontStyle" value="sans" onclick="updateCard()"> 
+
+            <input type="radio" id="sans" name="fontType" value="sans" onclick="updateCard()">
             <label for="sans">Sans Serif</label><br>
-            <input type="radio" id="script" name="fontType" value="script"> 
+
+            <input type="radio" id="script" name="fontType" value="script" onclick="updateCard()">
             <label for="script">Script</label>
         </div>
+
         <div class="formField">
             <label for="textSize">Choose your text size:</label>
-            <select id="textSize" name="textSize" onclick="updateCard()">
+            <select id="textSize" name="textSize" onchange="updateCard()">
                 <option value="small">Small</option>
                 <option value="medium" selected>Medium</option>
                 <option value="large">Large</option>
             </select>
         </div>
+
         <div class="formField">
             <label for="bgcolor">What color are you feeling right now? </label>
-            <input type=="color" id="bgcolor" name="bgcolor" value="#ffffff" onblur="updateCard()">
+            <input type="color" id="bgcolor" name="bgcolor" value="#ffffff" onchange="updateCard()">
         </div>
     </form>
 
     <div id="formResults"></div>
 
     <script>
-
         // Declare global variables
         let fName, isGoodDay, fontType, textSize, bgcolor;
 
@@ -66,7 +72,7 @@
             // Clear formResults element
             document.getElementById("formResults").innerHTML = "";
 
-            // Show information in the formResults 
+            // Show information in the formResults
             if (fName != '' && fName != null) {
                 document.getElementById("formResults").innerHTML = "<p>Hello " + fName + "!</p>";
             }
@@ -83,7 +89,7 @@
 
             // Updates the font size of the text
             document.getElementById("formResults").style.fontSize = textSize;
-            
+
             switch (fontType) {
                 case "serif":
                     document.getElementById("formResults").style.fontFamily = "Georgia, Times New Roman, Times, serif";
