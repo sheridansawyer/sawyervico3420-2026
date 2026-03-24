@@ -26,11 +26,12 @@ for (let i = 0; i < images.length; i++) {
     let img = document.createElement("img");
     img.src = images[i];
     img.alt = "Thumbnail " + (i + 1);
+    img.width = 200; // IMPORTANT for assignment (thumbnail size)
 
     // Bonus: click to open full-size image
-    img.addEventListener("click", function () {
-        window.open(img.src, "_blank");
-    });
+    img.onclick = function () {
+        window.open(images[i], "_blank");
+    };
 
     galleryContainer.appendChild(img);
 }
@@ -54,4 +55,5 @@ for (let i = 0; i < menuItems.length; i++) {
     a.target = "_blank";
 
     menuContainer.appendChild(a);
+    menuContainer.appendChild(document.createElement("br")); // spacing (important visually)
 }
