@@ -165,13 +165,28 @@ const favoritesChart = new Chart(chartContext, {
   }
 });
 
+/* ✅ UPDATED VOTING LOGIC (ONLY ONE VOTE ALLOWED) */
+let hasVoted = false;
+
 voteForm.addEventListener('submit', (event) => {
   event.preventDefault();
+
+  if (hasVoted) {
+    voteMessage.textContent = 'You already voted. Only one vote is allowed.';
+    return;
+  }
+
   const selection = favoriteTrack.value;
+
   voteCounts[selection] += 1;
   favoritesChart.data.datasets[0].data = Object.values(voteCounts);
   favoritesChart.update();
-  voteMessage.textContent = `Thanks for voting for ${selection}!`;
+
+  hasVoted = true;
+  favoriteTrack.disabled = true;
+  voteForm.querySelector('button').disabled = true;
+
+  voteMessage.textContent = `Thanks for voting for ${selection}! Your vote has been counted.`;
 });
 
 themeToggle.addEventListener('click', () => {
